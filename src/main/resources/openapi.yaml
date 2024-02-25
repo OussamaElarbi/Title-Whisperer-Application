@@ -1,0 +1,115 @@
+openapi: 3.0.3
+info:
+  version: '1.0.0'
+  title: TitleWhisperer API
+  description: API for generating suggested titles from slide content using ChatGPT.
+security:
+  - ApiKeyAuth: []
+paths:
+  /titles/generate:
+    post:
+      summary: Get suggested titles from slide content
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - content
+              properties:
+                content:
+                  type: string
+                  minLength: 100
+                  maxLength: 500
+                  example: "This is the content of the slide."
+      parameters:
+        - in: header
+          name: Gpt-Api-Key
+          required: true
+          schema:
+            type: string
+            nullable: false
+          description: API Key for ChatGPT API
+      responses:
+        200:
+          description: Successful response - List of generated titles by ChatGPT API
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GeneratedTitlesResponse"
+        400:
+          description: Bad request error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+        401:
+          description: Unauthorized error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInternalServerError'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInternalServerError'
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      in: header
+      description: "Api Key to access the ChatGPT API"
+      type: apiKey
+      name: Gpt-Api-Key
+  schemas:
+    GeneratedTitlesResponse:
+      type: object
+      properties:
+        generated_titles:
+          type: array
+          items:
+            type: string
+      example:
+        generated_titles:
+          - "Suggested Title 1"
+          - "Suggested Title 2"
+    ErrorBadRequest:
+      $ref: '#/components/schemas/CommonError'
+      example:
+        errorCode: 400
+        message: "Bad Request"
+        details: ["Invalid content provided."]
+    ErrorUnauthorized:
+      $ref: '#/components/schemas/CommonError'
+      example:
+        errorCode: 401
+        message: "Unauthorized"
+        details: ["Invalid or expired API key. Please provide a valid API key."]
+    ErrorInternalServerError:
+      $ref: '#/components/schemas/CommonError'
+      example:
+        errorCode: 500
+        message: "Internal Server Error"
+        details: ["An unexpected error occurred while processing your request."]
+    CommonError:
+      type: object
+      properties:
+        errorCode:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: string

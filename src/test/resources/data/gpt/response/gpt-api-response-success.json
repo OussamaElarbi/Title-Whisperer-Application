@@ -1,0 +1,21 @@
+{
+  "id": "chatcmpl-8CPm8fwUDGG7FFo2TBLR2zgd0Bcsf",
+  "object": "chat.completion",
+  "created": 1697969708,
+  "model": "gpt-3.5-turbo-0613",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "[\n  \"Revolutionizing the Road: Key Trends Shaping the Future of Cars in 2023\",\n  \"Unleashing the Power: The Electric Revolution in the Automotive Industry\",\n  \"Driving Towards Tomorrow: Advances in Electric Vehicles in 2023\",\n  \"Embracing Autonomy: The Future of Self-Driving Cars in 2023\",\n  \"The Road Ahead: Key Transformations in the Automotive Industry\",\n  \"Electrifying the Streets: The Rise of Electric Vehicles in 2023\",\n  \"Autonomous Revolution: Unveiling the Future of Driving\",\n  \"Revolutionary Milestones: The Progression of Autonomous Technology in 2023\",\n  \"Accelerating Change: Key Trends Reshaping the Automotive Industry\",\n  \"Innovations on Wheels: The Evolution of Cars in 2023\"\n]"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 138,
+    "completion_tokens": 171,
+    "total_tokens": 309
+  }
+}

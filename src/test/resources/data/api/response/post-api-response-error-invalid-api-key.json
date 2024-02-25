@@ -1,0 +1,7 @@
+{
+  "errorCode": 401,
+  "message": "Unauthorized",
+  "details": [
+    "Error: Invalid API Key, please fetch a valid API Key from https://platform.openai.com/account/api-keys"
+  ]
+}

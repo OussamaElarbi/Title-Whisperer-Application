@@ -1,0 +1,7 @@
+{
+  "errorCode": 400,
+  "message": "Invalid request content.",
+  "details": [
+    "content : size must be between 100 and 500"
+  ]
+}

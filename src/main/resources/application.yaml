@@ -1,0 +1,14 @@
+com.experiment.titlewhisperer:
+  client:
+    service-uri: "https://api.openai.com/v1/chat/completions"
+    response-timeout: 30000 #milliseconds
+    read-timeout: 120 #seconds
+    write-timeout: 120 #seconds
+  gpt:
+    model: gpt-3.5-turbo
+    role: system
+    description: "You are a smart title generator. Generate 10 good titles and just wrap them each in string quotes and present them as an array. Order the titles from best fit to worst fit"
+
+spring:
+  mustache:
+    check-template-location: false

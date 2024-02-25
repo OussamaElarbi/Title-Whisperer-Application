@@ -1,0 +1,7 @@
+{
+  "errorCode": 503,
+  "message": "Servers are experiencing high traffic.",
+  "details": [
+    "Service Unavailable"
+  ]
+}

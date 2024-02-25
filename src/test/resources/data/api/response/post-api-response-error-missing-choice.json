@@ -1,0 +1,7 @@
+{
+  "errorCode": 500,
+  "message": "No choices returned by the GPT model",
+  "details": [
+    "{\"id\":\"chatcmpl-8CPm8fwUDGG7FFo2TBLR2zgd0Bcsf\",\"object\":\"chat.completion\",\"created\":1697969708,\"model\":\"gpt-3.5-turbo-0613\",\"choices\":[],\"usage\":{\"prompt_tokens\":138,\"completion_tokens\":171,\"total_tokens\":309}}"
+  ]
+}

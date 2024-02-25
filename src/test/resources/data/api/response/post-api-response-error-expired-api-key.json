@@ -1,0 +1,7 @@
+{
+  "errorCode": 401,
+  "message": "Unauthorized request",
+  "details": [
+    "Incorrect API key provided: sk-XBkz5***************************************96pW. You can find your API key at https://platform.openai.com/account/api-keys."
+  ]
+}
