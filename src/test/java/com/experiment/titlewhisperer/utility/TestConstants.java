@@ -4,12 +4,13 @@ import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class TestConstants {
-    public static final String GPT_API_KEY_HEADER = "sk-XBkz5bqeQEye0a8k7uouWT3ZlbkFJbAsRtXiR7EYcR8dQ96pW";
-    public static final String GPT_EXPIRED_API_KEY_HEADER = "sk-CBkz5bqeQEye0a8k7uouWT3ZlbkFJbAsRtXiR7EYcR8dQ96pW";
-    public static final String GPT_INVALID_PLAN_API_KEY_HEADER = "zm-CBkz5bqeQEye0a8k7uouWT3ZlbkJbAsRtXiR7EYcR8dQ96pW";
-    public static final String GPT_SERVICE_UNAVAILABLE_API_KEY_HEADER = "pol-CBkz5bqeQEye0a8k7uouWT3ZlbkJbAsRtXiR7EYcR8dQ96pW";
-    public static final String GPT_INTERNAL_SERVICE_ERROR_API_KEY_HEADER = "iul-CBkz5bqeQEye0a8k7uouWT3ZlbkJbAsRtXiR7EYcR8dQ96pW";
-    public static final String GPT_SERVICE_MISSING_CHOICE_API_KEY_HEADER = "oul-CBkz5bqeQEye0a8k7uouWT3ZlbkJbAsRtXiR7EYcR8dQ96pW";
+    public static final String GPT_API_KEY_HEADER = "sk-ABkz5bqeQEye0a8k7uouWT3ZlbkFJbAsRtXiR7EYcR8dQ96pW";
+    public static final String GPT_EXPIRED_API_KEY_HEADER = "sk-ZBkz5bqeQEye0a8k7uouWT3ZlbkFJbAsRtXiR7EYcR8dQ96pW";
+    public static final String GPT_INVALID_PLAN_API_KEY_HEADER = "sk-CBkz5bqeQEye0a8k7zoxWT3ZlbkFJbAsRtXiR7EYcR8dQ96pW";
+    public static final String GPT_SERVICE_UNAVAILABLE_API_KEY_HEADER = "sk-CBkz5bqeQEye0a8e7uopWT3ZlbkFJbAsRtXiR7EYcR8dQ96pW";
+    public static final String GPT_INTERNAL_SERVICE_ERROR_API_KEY_HEADER = "sk-CBkz5bqeQEye0a8k1molWT3ZlbkFJbAsRtXiR7EYcR8dQ96pW";
+    public static final String GPT_SERVICE_MISSING_CHOICE_API_KEY_HEADER = "sk-CBkz5bqeQEye0a8k4uouQT3ZlbkFJbAsRtXiR7EYcR8dQ96pW";
+
 
     public static final String GPT_API_URL = "/chat/completions";
     public static final String GPT_API_REQUEST_SUCCESS = "/data/gpt/request/gpt-api-request-success.json";
