@@ -12,6 +12,7 @@ import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @AllArgsConstructor
 @Service
 @Log4j2
@@ -41,7 +42,7 @@ public class GptService {
     private List<GptApiRequest.Message> messageList(String content) {
         List<GptApiRequest.Message> messageList = new ArrayList<>();
         messageList.add(GptApiRequest.Message.builder().role(gptProperties.role()).content(gptProperties.description()).build());
-        messageList.add(GptApiRequest.Message.builder().role("user").content("Slide Content: ".concat(content)).build());
+        messageList.add(GptApiRequest.Message.builder().role("user").content("Slide Content: " .concat(content)).build());
         return messageList.stream().toList();
     }
 }

@@ -4,13 +4,13 @@ info:
   title: TitleWhisperer API
   description: API for generating suggested titles from slide content using ChatGPT.
 security:
-  - ApiKeyAuth: []
+  - ApiKeyAuth: [ ]
 paths:
   /titles/generate:
     post:
       summary: Get suggested titles from slide content
       security:
-        - ApiKeyAuth: []
+        - ApiKeyAuth: [ ]
       requestBody:
         required: true
         content:
@@ -88,19 +88,19 @@ components:
       example:
         errorCode: 400
         message: "Bad Request"
-        details: ["Invalid content provided."]
+        details: [ "Invalid content provided." ]
     ErrorUnauthorized:
       $ref: '#/components/schemas/CommonError'
       example:
         errorCode: 401
         message: "Unauthorized"
-        details: ["Invalid or expired API key. Please provide a valid API key."]
+        details: [ "Invalid or expired API key. Please provide a valid API key." ]
     ErrorInternalServerError:
       $ref: '#/components/schemas/CommonError'
       example:
         errorCode: 500
         message: "Internal Server Error"
-        details: ["An unexpected error occurred while processing your request."]
+        details: [ "An unexpected error occurred while processing your request." ]
     CommonError:
       type: object
       properties:

@@ -2,26 +2,19 @@ package com.experiment.titlewhisperer.unit;
 
 import com.experiment.titlewhisperer.config.WebClientConfig;
 import com.experiment.titlewhisperer.converter.TitleWhispererConverter;
-import com.experiment.titlewhisperer.exceptions.TooManyRequestsException;
 import com.experiment.titlewhisperer.model.GeneratedTitlesResponse;
-import com.experiment.titlewhisperer.model.GptApiRequest;
 import com.experiment.titlewhisperer.model.GptApiResponse;
 import com.experiment.titlewhisperer.properties.GptProperties;
 import com.experiment.titlewhisperer.service.GptService;
 import com.experiment.titlewhisperer.service.TitleWhispererService;
-import com.fasterxml.jackson.core.JsonGenerationException;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 

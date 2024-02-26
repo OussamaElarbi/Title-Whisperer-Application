@@ -37,7 +37,7 @@ public class ApiKeySecurityFilter implements WebFilter {
             if (StringUtils.isNotBlank(apiKey) & isValidApiKey(apiKey)) {
                 chain.filter(exchange);
             } else {
-                    return handleInvalidApiKeyHeader(exchange);
+                return handleInvalidApiKeyHeader(exchange);
             }
         }
         return chain.filter(exchange);

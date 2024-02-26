@@ -8,8 +8,8 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 @SpringBootApplication
 public class TitleWhispererApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(TitleWhispererApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(TitleWhispererApplication.class, args);
+    }
 
 }

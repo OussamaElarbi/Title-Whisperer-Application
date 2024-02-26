@@ -15,7 +15,7 @@ public class TitleWhispererApiImpl implements TitlesApiDelegate {
     private final TitleWhispererService titleWhispererService;
 
     /**
-     *{@inheritDoc}
+     * {@inheritDoc}
      */
     @Override
     public Mono<ResponseEntity<GeneratedTitlesResponse>> titlesGeneratePost(String gptApiKey, Mono<TitlesGeneratePostRequest> titlesGeneratePostRequest, ServerWebExchange exchange) {

@@ -34,9 +34,9 @@ public class TestConstants {
 
     public static final String POST_API_RESPONSE_ERROR_EMPTY_BODY = "/data/api/response/post-api-response-error-empty-body.json";
 
-    public static final String POST_API_RESPONSE_ERROR_INVALID_API_KEY =  "/data/api/response/post-api-response-error-invalid-api-key.json";
+    public static final String POST_API_RESPONSE_ERROR_INVALID_API_KEY = "/data/api/response/post-api-response-error-invalid-api-key.json";
 
-    public static final String POST_API_RESPONSE_ERROR_EXPIRED_API_KEY =  "/data/api/response/post-api-response-error-expired-api-key.json";
+    public static final String POST_API_RESPONSE_ERROR_EXPIRED_API_KEY = "/data/api/response/post-api-response-error-expired-api-key.json";
 
     public static final String POST_API_RESPONSE_ERROR_TOO_MANY_REQUESTS = "/data/api/response/post-api-response-error-too-many-requests.json";
 

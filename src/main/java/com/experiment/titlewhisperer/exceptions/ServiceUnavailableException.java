@@ -3,6 +3,7 @@ package com.experiment.titlewhisperer.exceptions;
 import lombok.Data;
 
 import java.io.Serial;
+
 @Data
 public class ServiceUnavailableException extends RuntimeException {
 

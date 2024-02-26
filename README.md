@@ -28,8 +28,10 @@ testing purposes.
 
 ### Prerequisites
 
-- Java 11 or higher
+- Java 17 or higher
 - [Maven](https://maven.apache.org/)
+- IDE (like [Intellij IDEA](https://www.jetbrains.com/idea/download))
+- ChatGPT API Key - [ChatGPT API](https://chat.openai.com/docs/api-key)
 
 ### Build and Run
 
@@ -54,10 +56,10 @@ testing purposes.
 4. **Run the application:**
 
     ```bash
-    java -jar target/title-whisperer-1.0.0.jar
+    java -jar target/TitleWhisperer-1.0.jar 
     ```
 
-5. **Access the application at [http://localhost:8080](http://localhost:8080)**
+5. **Access the application at [http://localhost:8080/titles/generate](http://localhost:8080/titles/generate) - Use [Postman Application](https://www.postman.com/downloads/) for best experience**
 
 ## Configuration
 
@@ -71,9 +73,12 @@ To use the Title Whisperer API, follow the guidelines below.
 
 Include the following headers in your HTTP request:
 
-- **Gpt-Api-Key**: Your ChatGPT API key.
+- **Gpt-Api-Key**: Your ChatGPT API key
 
-### Sample POST Body
+### Required Body (JSON)
+- `{"content": "Your content"}`
+
+### Sample API Request
 
 Make a POST request to the endpoint with the content you want to generate titles for. Here's an example using `curl`:
 
@@ -86,9 +91,41 @@ curl --location 'http://localhost:8080/titles/generate' \
 }'
  ```
 
+### Sample API Response
+<pre>
+{
+  "generated_titles": [
+    "Revolutionizing the Road: Key Trends Shaping the Future of Cars in 2023",
+    "Unleashing the Power: The Electric Revolution in the Automotive Industry",
+    "Driving Towards Tomorrow: Advances in Electric Vehicles in 2023",
+    "Embracing Autonomy: The Future of Self-Driving Cars in 2023",
+    "The Road Ahead: Key Transformations in the Automotive Industry",
+    "Electrifying the Streets: The Rise of Electric Vehicles in 2023",
+    "Autonomous Revolution: Unveiling the Future of Driving",
+    "Revolutionary Milestones: The Progression of Autonomous Technology in 2023",
+    "Accelerating Change: Key Trends Reshaping the Automotive Industry",
+    "Innovations on Wheels: The Evolution of Cars in 2023"
+  ]
+}
+</pre>
+
+## Postman
+
+You can use Postman to test the API seamlessly
+
+
+
 ## Testing
 
 The project includes unit tests for various components. Run the tests using:
 
 ```bash
 mvn test
+```
+
+Feedback and Support
+--------------------
+
+For any questions or feedback, please contact me at <ayade98@gmail.com>.
+
+* * * * *

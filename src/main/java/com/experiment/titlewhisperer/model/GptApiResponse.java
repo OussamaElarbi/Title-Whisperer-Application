@@ -2,6 +2,9 @@ package com.experiment.titlewhisperer.model;
 
 import lombok.Data;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 @Data
 public class GptApiResponse {
     private String id;
@@ -29,5 +32,15 @@ public class GptApiResponse {
         private int prompt_tokens;
         private int completion_tokens;
         private int total_tokens;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GptApiResponse that = (GptApiResponse) o;
+        return Objects.equals(id, that.id) &&
+                Arrays.equals(choices, that.choices) &&
+                Objects.equals(usage, that.usage);
     }
 }

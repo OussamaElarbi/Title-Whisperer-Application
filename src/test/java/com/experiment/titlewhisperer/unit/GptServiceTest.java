@@ -1,7 +1,6 @@
 package com.experiment.titlewhisperer.unit;
 
 import com.experiment.titlewhisperer.config.WebClientConfig;
-import com.experiment.titlewhisperer.model.GptApiRequest;
 import com.experiment.titlewhisperer.model.GptApiResponse;
 import com.experiment.titlewhisperer.properties.GptProperties;
 import com.experiment.titlewhisperer.service.GptService;
@@ -17,21 +16,20 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.client.reactive.ReactorClientHttpConnector;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
+import reactor.netty.http.client.HttpClient;
 import reactor.test.StepVerifier;
 
 import java.io.IOException;
-import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
+
 @Slf4j
 @ExtendWith(MockitoExtension.class)
 public class GptServiceTest {
-
     public static MockWebServer mockWebServer;
-
     @Mock
     WebClientConfig webClientConfig;
     @Mock
@@ -59,11 +57,6 @@ public class GptServiceTest {
 
         ObjectMapper objectMapper = new ObjectMapper();
 
-        GptApiRequest gptApiRequest = GptApiRequest.builder()
-                .model(gptProperties.model())
-                .messages(List.of(GptApiRequest.Message.builder().content(content).build()))
-                .build();
-
         GptApiResponse gptApiResponse = new GptApiResponse();
         gptApiResponse.setId(String.valueOf(1));
         GptApiResponse.Choice choice = new GptApiResponse.Choice();
@@ -73,31 +66,20 @@ public class GptServiceTest {
         gptApiResponse.setUsage(new GptApiResponse.Usage());
 
         mockWebServer.enqueue(new MockResponse()
-                .setBody(objectMapper.writeValueAsString(gptApiRequest))
+                .setBody(objectMapper.writeValueAsString(gptApiResponse))
                 .addHeader("Content-Type", "application/json"));
 
-        when(webClientConfig.webClient()).then(returns -> {
-            WebClient.Builder builder = WebClient.builder();
-            builder.baseUrl(String.format("http://localhost:%s", mockWebServer.getPort()));
-            return builder.build();
-        });
-
-
-        WebClient.ResponseSpec expectedResponse = webClientConfig.webClient()
-                .post()
-                .header("Authorization", "Bearer " + apiKey)
-                .bodyValue(gptApiRequest)
-                .retrieve()
-                .onRawStatus(status -> status == 404, clientResponse -> Mono.error(new Exception("Resource not found")));
-
-        GptApiResponse expectedResponseBody = new GptApiResponse();
-        expectedResponseBody.setId(String.valueOf(1));
-        expectedResponseBody.setChoices(choicesArray);
-        expectedResponseBody.setUsage(new GptApiResponse.Usage());
+        when(webClientConfig.webClient()).thenReturn(WebClient.builder()
+                .clientConnector(new ReactorClientHttpConnector(HttpClient.create()))
+                .baseUrl(String.format("http://localhost:%s", mockWebServer.getPort()))
+                .build());
 
 
         StepVerifier.create(gptService.whisperTitles(content, apiKey))
-                .expectNext(ResponseEntity.ok(expectedResponseBody))
+                .consumeNextWith(responseEntity -> {
+                    GptApiResponse actualResponse = responseEntity.getBody();
+                    assertThat(actualResponse).isEqualTo(gptApiResponse);
+                })
                 .verifyComplete();
 
     }
