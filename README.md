@@ -11,9 +11,7 @@ programming with Spring WebFlux for asynchronous and non-blocking communication.
     - [Build and Run](#build-and-run)
 - [Configuration](#configuration)
 - [Testing](#testing)
-- [Contributing](#contributing)
 - [License](#license)
-- [Acknowledgments](#acknowledgments)
 
 ## Features
 
@@ -109,9 +107,25 @@ curl --location 'http://localhost:8080/titles/generate' \
 }
 </pre>
 
-## Postman
+## Postman 
 
 You can use Postman to test the API seamlessly
+
+**Method 1:**
+
+**Copy past the [curl](#Sample-API-Request) command, and import it to Postman.**
+
+![Picture 1](screenshots/screenshot_2.png)
+
+**Method 2:**
+
+**Create new request, and set up the url and Gpt-Api-Key header**
+
+![Picture 2](screenshots/screenshot_1.png)
+
+**Past the content in the body section as JSON**
+
+![Picture 3](screenshots/screenshot_3.png)
 
 
 
@@ -127,5 +141,10 @@ Feedback and Support
 --------------------
 
 For any questions or feedback, please contact me at <ayade98@gmail.com>.
+
+
+## License
+
+This project is licensed under the terms of the MIT License. See the [LICENSE](https://github.com/OussamaElarbi/Title-Whisperer-Application/blob/ecc05a93a4109a91149f0520f2b4626fa6dc6746/LICENSE.txt) file for details.
 
 * * * * *
