@@ -14,7 +14,7 @@ on:
   pull_request:
     branches: [ "master" ]
 
-permissions: read-all
+permissions: write-all
 
 jobs:
   build:
